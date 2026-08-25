@@ -34,8 +34,8 @@ jobs:
       - name: Converter para GeoJSON
         run: ogr2ogr -f GeoJSON -t_srs EPSG:4326 _site/itinerarios_transcol.geojson itinerarios_transcol.gpkg
 
-      - name: Converter para KML
-        run: ogr2ogr -f KML -t_srs EPSG:4326 _site/itinerarios_transcol.kml itinerarios_transcol.gpkg
+      - name: Converter para KML (com pastas por categoria)
+        run: bash .github/scripts/converter_kml_por_categoria.sh itinerarios_transcol.gpkg _site/itinerarios_transcol.kml
 
       - name: Configurar Pages
         uses: actions/configure-pages@v5
